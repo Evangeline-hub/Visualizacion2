@@ -1,0 +1,29 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <script languaje="javascript" type="text/javascript" 
+        src="http://d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript">
+        function read(){
+            d3.csv("/D3 EVa/food.csv", function(data){
+                data.forEach(function(d){ 
+                  d3.select("body").append("p").text(d.Food +" "+d.Deliciousness);
+                   });
+                });
+            }
+
+    </script> 
+    </head>
+    <body  onload="read()">
+       <script>
+         ancho= d3.select('#grafica').style('width').slice(0,-2) alto = ancho * 9 / 16
+
+         svg = d3.select('#grafica')
+         .append('svg')
+         .attr('width',ancho)
+         .attr('height',alto)
+
+       </script>
+    </body>
+</html>
